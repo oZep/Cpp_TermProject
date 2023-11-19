@@ -6,6 +6,7 @@
 #include <sstream>
 #include <cctype>
 #include <set>
+#include <limits> //Correction
 
 // Function to check if a string is a number
 bool isNumber(const std::string& s) {
