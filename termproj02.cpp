@@ -7,6 +7,8 @@
 #include <cctype>
 #include <set>
 #include <limits> //Correction
+using namespace std;
+
 
 // Function to check if a string is a number
 bool isNumber(const std::string& s) {
@@ -28,7 +30,8 @@ int calculateWordValue(std::string word, std::map<char, int> letterValues) {
 // Function to calculate Levenshtein distance between two words
 int levenshteinDistance(const std::string& s1, const std::string& s2) {
     const size_t len1 = s1.size(), len2 = s2.size();
-    std::vector<std::vector<int>> dp(len1 + 1, std::vector<int>(len2 + 1, 0));
+    std::vector<std::vector<int> > dp(len1 + 1, std::vector<int>(len2 + 1, 0));   
+    // ---------> We have to edit this to make it O(n) or smaller, currently O(NM)
     for (size_t i = 0; i <= len1; i++) {
         for (size_t j = 0; j <= len2; j++) {
             if (i == 0)
@@ -95,7 +98,7 @@ int main() {
     valuesFile.close();
 
     // Calculate the values of the words and store unique values
-    std::map<int, std::vector<std::string>> wordValueMap;
+    std::map<int, std::vector<std::string> > wordValueMap;
     std::map<std::string, int> wordOccurrenceMap;
     for (const auto& w : words) {
         int value = calculateWordValue(w, letterValues);
@@ -103,16 +106,22 @@ int main() {
         wordOccurrenceMap[w]++;
     }
 
-    // Write the numbers and corresponding words to the output file
+
+    // CHANGED TO OPTAMIZE //
+    // Write the numbers and corresponding words to the output file    
+    //---------> We have to edit this to make it O(n) or smaller
     std::ofstream uniqueSortedOutputFile("output_sorted_words_with_values.txt");
+    std::stringstream buffer; // USING A BUFFER TO WRITE MULTIPLE LINES
     for (const auto& entry : wordValueMap) {
-        uniqueSortedOutputFile << entry.first << " - ";
-        for (const auto& word : entry.second) {
-            uniqueSortedOutputFile << word << " ";
-        }
-        uniqueSortedOutputFile << "\n";
+        buffer << entry.first << " - ";
+        // copy elements from the entries start to the entry end into the buffer ostream
+        std::copy(entry.second.begin(), entry.second.end(), std::ostream_iterator<std::string>(buffer, " ")); 
+        buffer << "\n"; // move to next line
     }
+    uniqueSortedOutputFile << buffer.rdbuf(); // write the entire entry of the buffer into the output file
     uniqueSortedOutputFile.close();
+
+
 
     // Count occurrences of each number
     std::map<std::string, int> numberOccurrences;
@@ -126,9 +135,8 @@ int main() {
     }
 
     // Sort numbers based on occurrences in descending order
-    std::vector<std::pair<std::string, int>> sortedNumberOccurrences(numberOccurrences.begin(), numberOccurrences.end());
-    std::sort(sortedNumberOccurrences.begin(), sortedNumberOccurrences.end(),
-        [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
+    std::vector<std::pair<std::string, int> > sortedNumberOccurrences(numberOccurrences.begin(), numberOccurrences.end());
+    std::sort(sortedNumberOccurrences.begin(), sortedNumberOccurrences.end(), [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
             return a.second > b.second;
         });
 
