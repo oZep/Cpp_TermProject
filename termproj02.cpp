@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <vect or>
+#include <vector>
 #include <map>
 #include <algorithm>
 #include <sstream>
