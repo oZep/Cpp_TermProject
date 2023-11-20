@@ -27,22 +27,42 @@ int calculateWordValue(std::string word, std::map<char, int> letterValues) {
     return value;
 }
 
+// CHANGED TO OPTAMIZE //
+// WE USE DP PROGRAMMING TO REDUCE THE TIME COMPLEXITY BY REDUCING REDUNDANT CALCULATIONS
+// RECURSIZE therefore solving by base cases
+//  O(m * n), where m and n are the lengths of the input strings.
+int LevDist(const std::string& a, const std::string& b, std::vector<std::vector<int>>& memo) {
+    // Base cases
+    if (a.size() == 0)
+        return b.size();
+    if (b.size() == 0)
+        return a.size();
+
+    // Check if the result is already calculated
+    if (memo[a.size()][b.size()] != -1)
+        return memo[a.size()][b.size()];
+
+    // Calculate the indicator value
+    int indicator = (a[0] != b[0]) ? 1 : 0;
+
+    // Recursive calls with memoization
+    int result = std::min({ LevDist(a.substr(1), b, memo) + 1,
+                            LevDist(a, b.substr(1), memo) + 1,
+                            LevDist(a.substr(1), b.substr(1), memo) + indicator });
+
+    // Memoize the result
+    memo[a.size()][b.size()] = result;
+
+    return result;
+}
+
+
+// CHANGED TO OPTAMIZE //
 // Function to calculate Levenshtein distance between two words
 int levenshteinDistance(const std::string& s1, const std::string& s2) {
     const size_t len1 = s1.size(), len2 = s2.size();
-    std::vector<std::vector<int> > dp(len1 + 1, std::vector<int>(len2 + 1, 0));   
-    // ---------> We have to edit this to make it O(n) or smaller, currently O(NM)
-    for (size_t i = 0; i <= len1; i++) {
-        for (size_t j = 0; j <= len2; j++) {
-            if (i == 0)
-                dp[i][j] = j;
-            else if (j == 0)
-                dp[i][j] = i;
-            else
-                dp[i][j] = std::min({ dp[i - 1][j - 1] + (s1[i - 1] == s2[j - 1] ? 0 : 1), dp[i - 1][j] + 1, dp[i][j - 1] + 1 });
-        }
-    }
-    return dp[len1][len2];
+    std::vector<std::vector<int>> memo(len1 + 1, std::vector<int>(len2 + 1, -1)); 
+    return LevDist(s1, s2, memo);
 }
 
 // Function to find the most similar word from a list
