@@ -101,7 +101,7 @@ std::string findMostSimilarWord(const std::string& target, const std::vector<std
         }
     };
 
-    // Use multiple threads to calculate distances concurrently
+    // multiple threads to calculate distances concurrently
     const size_t numThreads = std::thread::hardware_concurrency();
     const size_t wordsPerThread = wordList.size() / numThreads;
     std::vector<std::thread> threads;

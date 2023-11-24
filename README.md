@@ -32,7 +32,7 @@ The C++ file in question processes a large input file containing scrambled words
 
 **Results:**
 
-- After implementing the threading approach, the program is now capable of processing 1000 lines of the main text file and calculating Levenshtein distances within a mere 3 seconds.
+- After implementing the threading approach, the program is now capable of processing 1000 lines of the main text file and calculating Levenshtein distances within a mere 6 seconds.
 - Considering that the text file contains 1 million lines, extrapolating from this result indicates a significantly reduced overall processing time.
 - In comparison to the original implementation, which by rough estimations would take a year to compile, the optimization has proven to be highly effective.
 
