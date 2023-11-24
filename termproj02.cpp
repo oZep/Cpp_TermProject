@@ -6,6 +6,7 @@
 #include <sstream>
 #include <cctype>
 #include <set>
+#include <thread>
 #include <limits> //Correction
 using namespace std;
 
@@ -42,7 +43,7 @@ int LevDist(const std::string& a, const std::string& b, std::vector<std::vector<
     if (memo[a.size()][b.size()] != -1)
         return memo[a.size()][b.size()];
 
-    // Calculate the indicator value
+    // Calculate the indicator
     int indicator = (a[0] != b[0]) ? 1 : 0;
 
     // Recursive calls with memoization
@@ -57,7 +58,7 @@ int LevDist(const std::string& a, const std::string& b, std::vector<std::vector<
 }
 
 
-// CHANGED TO OPTAMIZE //
+// CHANGED TO OPTAMIZE using RECURSION AND DP //
 // Function to calculate Levenshtein distance between two words
 int levenshteinDistance(const std::string& s1, const std::string& s2) {
     const size_t len1 = s1.size(), len2 = s2.size();
@@ -65,23 +66,68 @@ int levenshteinDistance(const std::string& s1, const std::string& s2) {
     return LevDist(s1, s2, memo);
 }
 
+// CHANGED TO OPTAMIZE USING THREADING
+
+// Function to calculate Levenshtein distance between two words
+int levenshteinDistance2(const std::string& s1, const std::string& s2) {
+    const size_t len1 = s1.size(), len2 = s2.size();
+    std::vector<std::vector<int>> dp(len1 + 1, std::vector<int>(len2 + 1, 0));
+    for (size_t i = 0; i <= len1; i++) {
+        for (size_t j = 0; j <= len2; j++) {
+            if (i == 0)
+                dp[i][j] = j;
+            else if (j == 0)
+                dp[i][j] = i;
+            else
+                dp[i][j] = std::min({ dp[i - 1][j - 1] + (s1[i - 1] == s2[j - 1] ? 0 : 1), dp[i - 1][j] + 1, dp[i][j - 1] + 1 });
+        }
+    }
+    return dp[len1][len2];
+}
+
 // Function to find the most similar word from a list
 std::string findMostSimilarWord(const std::string& target, const std::vector<std::string>& wordList) {
     std::string mostSimilarWord;
     int minDistance = std::numeric_limits<int>::max();
-    for (const auto& word : wordList) {
-        int distance = levenshteinDistance(target, word);
-        if (distance < minDistance) {
-            minDistance = distance;
-            mostSimilarWord = word;
+
+    // Function to calculate Levenshtein distance for a range of words
+    auto calculateDistances = [&](size_t start, size_t end) {
+        for (size_t i = start; i < end; ++i) {
+            int distance = levenshteinDistance2(target, wordList[i]);
+            if (distance < minDistance) {
+                minDistance = distance;
+                mostSimilarWord = wordList[i];
+            }
         }
+    };
+
+    // Use multiple threads to calculate distances concurrently
+    const size_t numThreads = std::thread::hardware_concurrency();
+    const size_t wordsPerThread = wordList.size() / numThreads;
+    std::vector<std::thread> threads;
+
+    for (size_t i = 0; i < numThreads - 1; ++i) {
+        threads.emplace_back(calculateDistances, i * wordsPerThread, (i + 1) * wordsPerThread); // creates a new thread and adds it to a vector of threads named threads.
     }
+
+    // Calculate distances for the remaining words in the main thread
+    calculateDistances((numThreads - 1) * wordsPerThread, wordList.size());
+
+    // Wait for all threads to finish
+    for (auto& thread : threads) {
+        thread.join();
+    }
+
     return mostSimilarWord;
 }
 
 int main() {
+    // TESTING START TIMER
+    auto start = std::chrono::high_resolution_clock::now();
+
     // Read words from the input file
-    std::ifstream inputFile("input_words.txt");
+
+    std::ifstream inputFile("input_words - Main.txt");
     std::vector<std::string> words;
     std::vector<std::string> numbers;
     std::vector<std::string> mixedWords;
@@ -140,6 +186,10 @@ int main() {
     }
     uniqueSortedOutputFile << buffer.rdbuf(); // write the entire entry of the buffer into the output file
     uniqueSortedOutputFile.close();
+    auto endOptimize = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsedOptimize = endOptimize - start;
+    std::cout << "Optimization Time: " << elapsedOptimize.count() << " seconds\n";
+
 
 
 
@@ -154,11 +204,18 @@ int main() {
         }
     }
 
+    auto endNumbers = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsedNumbers = endNumbers - endOptimize;
+    std::cout << "Numbers Time: " << elapsedNumbers.count() << " seconds\n";
+
     // Sort numbers based on occurrences in descending order
     std::vector<std::pair<std::string, int> > sortedNumberOccurrences(numberOccurrences.begin(), numberOccurrences.end());
     std::sort(sortedNumberOccurrences.begin(), sortedNumberOccurrences.end(), [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
             return a.second > b.second;
         });
+    auto endSort = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsedSort = endSort - endNumbers;
+    std::cout << "Sort Time: " << elapsedSort.count() << " seconds\n";
 
     // Write the sorted numbers with occurrences to the output file
     std::ofstream numbersFile("output_sorted_numbers.txt");
@@ -168,12 +225,26 @@ int main() {
     numbersFile.close();
 
     // Find and correct mixed words
+    int count = 1000;
     std::ofstream correctedMixedWordsFile("output_corrected_mixed_words.txt");
     for (const auto& mixedWord : mixedWords) {
         std::string correctedWord = findMostSimilarWord(mixedWord, words);
         correctedMixedWordsFile << mixedWord << " - " << correctedWord << "\n";
+        count -= 1;
+        if (count == 0) {
+            break;
+        }
     }
     correctedMixedWordsFile.close();
+    auto endMixedWords = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsedMixedWords = endMixedWords - endSort;
+    std::cout << "Levenstein Time: " << elapsedMixedWords.count() << " seconds\n";
+
+
+    // TESTING PRINT TIMER
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
+    std::cout << "Total Time: " << elapsed.count() << " seconds\n";
 
     return 0;
 }

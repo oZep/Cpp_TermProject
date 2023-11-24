@@ -1,10 +1,102 @@
-0 - ! &&& *** 
-25 - lo 
-28 - too too too too 
-44 - word word 
-58 - first world 
-69 - value value 
-74 - level 
-76 - Letter letter letter letter Letter etterl Letter 
-78 - vellev vveell lleevv Hello 
-83 - letters terslet 
+1 - Zy 
+2 - Xz Xz Xz 
+4 - Yw Yw Zv 
+5 - Wx Vy Wx Wzx Zu 
+6 - Tz Yu 
+7 - Vw Ty Wyw Ty 
+8 - Uw Ys Sy Ys Vv Tx Wu Tx Xt 
+9 - Tw Qz Tw Wt Uv 
+10 - Zp Yq Ysx Vt Sw Vt 
+11 - Yws Yp Xq Py Tu Sv Yp Xq 
+12 - Oy Su Zn Su Nz 
+13 - Wyq Pw Ts Wp Xo Qv Ts Vwt Yn Wtv 
+14 - Uq Rt Ow Xn Qu Rt Lz Vsw Vp Uzyrz 
+15 - Qt Qt Ly Wn Vpy Tq Kz Zk Wyo Rs Qt Yl Ly Vtu Rs Rzs 
+16 - Qs Qs Vn Zj Pt Lx Uo Ptz Uvs Qs 
+17 - Wl Ot Qr Qrz Kx Jy Qr Un Sp Lw Iz Kx Ps Wl Znuz To 
+18 - Tnz Nt Wk So Uxo Nt Vyqv Wsr So Lvz Nt Qq Wrs Um Kw Kw Um 
+19 - Wj Ywrs Ix Lu Zhy Tur Kv Qp Xi Lu Pq Lu Gz Ix Unx Unx Vk Nxu 
+20 - Nrz Lt Rn Ku Xh Sxo Lt Lt Tmy Uk Vj Qo Jv Nr Vj Two Pp Rn Lt 
+21 - Ttqz Tk Op Ez Wtn Vi Yfz Uxl Rm Pyp Ygy Qn Ows Ynzr Nq Zowux Ez Gx 
+22 - Skz Wg Np Tlx Ye Jt Kwv Uxk Vh Fx Sly Mxs Wg Qqv Rl Ey Jvx Srs 
+23 - Js Pny Ti Txrwv Xe Mp Wuk Js Ex Zuh It Sj Zc Gv Unt Ivx Kr Vgz Yd Pm Pst Whx Xwh Mtv Vg Wwi Ti Kr Lq Xe 
+24 - Wkt Dx Bz Yti Utm Th Om Xks Om We Guz Owp Ht Dx Bz Nn Vf Dx Gu Mo Dx Wmr Gvy Mo Cy 
+25 - Ixt Nmz Hs Fu Pvo Dw Vxg Zzhzs Az Fu Uf Jq Tg Otr Cx Juv Ymwr Hzs Ev 
+26 - Ok Zqi Cw Yrto Vytyl Gs Usl Sg Cw Ya Bx Wjs Zsg Zsg Pky Ko Rh Oly Ue Xb Xb Sqp Dv Jp Wfyx Cw Sro Mm 
+27 - Umxs Fs Vsvn Wht Ip Ip Vc Wb Hq Smzs Lm Et Rg Te Bw Lm Bw Zyxb Gr 
+28 - Cu Zmk Oi Aw Dt Wutl Pos Rxh Fr Td Hp Ztd Zwa Bv Yfs Hyxs Yxve Whty 
+29 - Tc Ryqo Av Er Rmsyz Mj Re Jm Jm Yshw Ufv Qvqs Fuv Qzf Bu Rop Pg Ufv Av Vri Kuq Va Va Ub Oh 
+30 - Iozxz Riu Rpvr Ewt Yav Go Bt Bt Cs Jl Awzx Sc Sjs Uhs Shxw Zfrx Kk Cs Im Eq Im Jmy Pf 
+31 - Qd Xazv Iuq Li Npq Kj Xlk Fut Xjm Of Ng Uwhzu Kj Il Gn Pju Rno Of Zsb Kpt Nzg Mh Qd 
+32 - Jj Pqyn Scx Mg Pd Vbv Gur Hl Dtv Hl Gzm Oymty Br Qc Mkv Ysxjt Nf Etwx Szgt Zfn Knu Yof Jj Dws Frv 
+33 - Mpzrx Qdx Lg Nzwh Bq Vho Gl En Gl Do Lwj Sywd Zfm En En Dvsz Szeu Uuc Vuxd Cp Ra Kos Yovot Pc Lgz Ji Ar Rwye En Do 
+34 - Rwhu Rznl Pb Em Avu Me Qa Twri Sfxu Jrp Dn Em Bxr Qol Gk Jkw Fl Me Vfp Aq Zfl Oc Zrln Tsfy Lf Azry Przj Oql Oc Qa 
+35 - Dm Kmvw Gpt Bo Pjq Dmz Kuk Qpjz Lnq Cn Cn Md Qxmo Oxhv Jg Wiztq Lxqp Sqtm Ob Md Bxq Gnv Kf Ap Jg Tav Mrl Coy Md 
+36 - Tdxtz Vqc Xbvt Ucwzu Ld Hh Sub Mrk Dvzvt Noqv Cm Tgo Vhl Ig Sav Hh Oxql Ke Yeow Jf Wkosz Mc Ek Vbr Sqf Nb Rfr Ek Uta Ke Ao Tua 
+37 - Hg Ogs Mb Mb Zvod Jwh Plpw Bm Lc Hro Nlwr Ttnm Xwcq Je Gh Yoa Na Vkh Fi 
+38 - Smh Zqmj Jd Ma Php Bl Rcvw Pgq Ryplu Wuvdv Prlyu Vco Jd Mmn Ruwd Hf Nwc Qoh Lb Wlzmr Wdyvr Ei Yykvi 
+39 - Itrxt Swmj Nxzev Ulf Fg Zporp Sukwq Nsgy Ewk Mpxl Ozokx Rjk Rrpm Mmox Lsh Kzvxh He Pfq 
+40 - Huqr Lvd Tme Qhst Phn Unxyf Rursn Cqr Dh Rxnh Mml Skh Gvqr Vwen Jxd Fwi Rqhu Ntd Ewj Iit Etm Wzje Qta 
+41 - Mdt Kcw Qik Eku Ggw Pbs Fe Nfq Nsd Nkl Jtg Vmth Euk Zfe Gnp Nho Lud Snd Bi Skg Xisk Qknu Dmzt 
+42 - Dku Qsrh Lio Fd Boux Mjypx Vxke Gc Dgyz Ofyp Szih Fvlv Df Mjm Cpq Vyncx Kkszu Nson Bh Gxe Cyh Hom Xuel Aps Ctm Inm Hyqpv Bos Df Ghu Xnrtl Ia 
+43 - Cgy Xhxe Bg Rrml Itf Fon Ytqte Bg Gb Hfu Zqoti Kyfs Jrg Ed Kzaw Zwdh Srdt Gqk Bg Rdm Jnk Cf Fc 
+44 - Thf Cyfz Bf Hynm Pzme Dd Vcnu Ipi Dd Xmrvi Taur Xfd Avk Eyvxj Dvh Fb Awsq Jkpw Aor Fht Ec Ec 
+45 - Unkm Tsxpf Af Qbrv Yluhs Wai Bgx Pvqd Af Gya Czd Auk Dsqs Af Vjza Tiks Cd Kjl Xrjvk Orgs Udh Fa Dc Cd Mdp Lli Joh Xfvg 
+46 - Fpky Db Yarqw Db Csj Jfrx Bd Ae Njtvr Poby Xucj Gduz Cit Scnv Qif Rhxh Krc Mar Cit Bd Zoxne Bey Vrvnh Mdo 
+47 - Iqwyi Wsetp Cb Glow Gvb Ekypz Uylfs Eziq Qkex Lnvsp Dqxl Da Tdzg Jmh Ad Psivq Jeyq Btvxo Rwuat Ogi Zudf Alr Fip 
+48 - Bb Qcj Ybnzo Cgt Lqa Gspn Pwnc Tlkst Ac Xqnza Seuk Uoeo Lctu Imh Jurg Wqke Qplk Evit 
+49 - Edt Bzuf Dryiy Jlzro Fer Bxc Ba Aug Kme Tctqu Nwpzb Ryrik Pal Ba Yqrcr Lzel Ajys Dyjp Vmki Ba 
+50 - Tec Xjpd Nbl Ltvsg Gli Nkrmx Gtsh Peg Olnm Mudyq Feq Womkr Bjp Pdum Lbn Ihk Gwxln Fygp Grcz Dvom Qgd Qwlb Fjl Epg Izwlj Bvd 
+51 - Bybx Cnj Vjng Dds Bwb Xczcw Bvc Dpg Jque Lif Eua Lcl Kuorn Notd Rfmp Jvlvm Vqck Knlp Uwzbg Tdc Mwdm Mgns 
+52 - Jfj Rtwih Qhdw Lcvo Qxsqa Fcq Oilp Kigy Fuax Vano Oatp Nugj Icqw Movb Rec 
+53 - Bvtg Fctv Lufl Qpkqp Chn Ibn Vvigq Ovma Vibrz Ngd Ydrpn Ddq Fra Nfywi Aes Fmgy Xpch Kkc 
+54 - Ibm Jkc Yfcp Phln Hgyj Hqnk Gmsov Simi Vravm Bqxg Vcte Gjg Iqxwc Dlkw Skhnx Scb Ivkh Gziso 
+55 - Grio Yuctf Paf Qflsu Xdsb Cpd Brc Cgm Emyrn Quajz Rhni Jal Ohkut 
+56 - Kdg Kbi Gnuf Bqc Muei Aktws Ymybi Puwei Snjnq Mfzgv Bmro Gif Bkyky Fbn Hcsr Covh Fcm 
+57 - Ewogw Zjaj Khwe Dulj Fknqy Vmhey Xcsa Kdnr Kgc Hdwl Tlndw Jhc Hmvd Xmong Ejf Vvrdg 
+58 - Dld Ihuh Qfub Dld Wnfit Lzghs Jfd Pveon Bjtn Lwlfs Fqva Njua Vayrf Cmd Kvjc 
+59 - Cthn Pakq Idiw Tudko Lbe Ebl Wzape Wlcg Nbno Zkga Mrgns Pifn Vqjbt Owncp Clwg Jgb Ubudw Emby Fid Mjytc Bob 
+60 - Mad Nitxc Rhfl Hia Iktd Rrce Elve Wgirm Kudvl Kzdtyj Jec Fompt 
+61 - Indp Tifnt Ckti Lanp Dshl Acm Hiwc Ejdx Kdywf Bej Mrfgy Fpsqk Bbm Msib Gcg Lbc 
+62 - Bbl Ruraj Bwimu Wgnbv Cguk Jybe Axfk Hugf Iorya Kvnqd Dnozi Mknd Jntfr Nksqg Ipmfx Bduo Koig Jjwrqp 
+63 - Brgus Mngpq Gnwmj Gixtg Euojp Jjzfo Ckvyf Rebp Alb Bid Xdbk Edf Rnde 
+64 - Hteg Hfuez Nychp Ieujyv Iknf Emnos Ziobn Qqipg Lsbg Gaf Kewa Xhec Fmsb Byten Haop Mhji Xebiz Dgc Hclq 
+65 - Qcen Trgik Funuc Vpldk Cia Emjly Mmvgj Vlieq Jcjp Ktec 
+66 - Brygl Hgnvm Pnbf Blph Jjgqt Sylce Oseip Dpoc Ifrfy Ccqo Uxuofc 
+67 - Gesf Cowjl Ilfj Bcf Dpih Mgdm Askjv 
+68 - Iqweyi Ioygf Gbsh Fbom Lipfs Vbfzf Hqkvd Hpge Qhgxf Bmqd Ldesv Ccd Ebitz Dlki Qioli 
+69 - Piai Faug Kehk Bmlos Ioqlh Enusdx 
+70 - Exgdt Mvgwurkw Djpd Hgcp Pmdve Peigw Hdsc Bbrnx Jndf 
+71 - Jilykr Etcqn Fbdu Btja Lehum Bvxch Sefhu Mekd Lfmb Bda 
+72 - Lcih Ofegy Cyuha Rtafm Ikjvf Cbpqt 
+73 - Lctbt Eqehv Edjuq Kpric Mlesh Mgujf Aac Cbcw Mgelt Begry 
+74 - Zmfbi Qtcld Cbvkr Lncyb Eodf Njbd Ated 
+75 - Ykgci Jdje 
+76 - Daer Qsiczrqw Bmwnb Jqhbq Foyazg Dagws Beta Modlj 
+77 - Blzkb Wpaeh Keybj Jcisl Pvsrbht Avngi Abzhp 
+78 - Hhcg Egbl Klkbp Ieak Djmlm Nbgc Bmlbw 
+79 - Ftbsd Anspa Iohij Ffjc Kailr Dcovg 
+80 - Hhcuj Cykfe Xqkcmh Cwdgm Geka 
+81 - Gzrahxtw Vbaqg Bben Aasb 
+82 - Lfcwd Gdhc Jmpha Oajlj 
+83 - Goqga Dflrg Cfbpt Aecl 
+84 - Fhpao Laevf Oecoh 
+85 - Lcdln Ekpkb Hiobk Aefg Bgbh Kjsbc Kbapo 
+86 - Cjhzjyn Bieb Sfjcf Kgfoe Nlcgh 
+87 - Bnlje Poagfx Ahce Maba Ogjib 
+88 - Akpck Mcqfc 
+89 - Iqdfwyi Mrfoej Mrhbvd Pcamh Lfjhe Aagf 
+90 - Ycafe Mcfnd 
+93 - Umeani 
+94 - Bcdev Aaheu Biaqg 
+95 - Dsgxbe 
+97 - Pfacg Ebapi 
+100 - Dhbgi Zbvdoal 
+102 - Acihg 
+103 - Aflga 
+108 - Caldb 
+110 - Kcjail Afltfa 
+111 - Fcbfb 
+119 - Cadab 
+120 - Niyafptwzpj 
+122 - Goeswpnla 
