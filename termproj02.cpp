@@ -70,7 +70,9 @@ int levenshteinDistance(const std::string& s1, const std::string& s2) {
 
 // Function to calculate Levenshtein distance between two words
 int levenshteinDistance2(const std::string& s1, const std::string& s2) {
-    const size_t len1 = s1.size(), len2 = s2.size();
+    const size_t len1 = s1.size();
+    const size_t len2 = s2.size();
+
     std::vector<std::vector<int>> dp(len1 + 1, std::vector<int>(len2 + 1, 0));
     for (size_t i = 0; i <= len1; i++) {
         for (size_t j = 0; j <= len2; j++) {
@@ -90,32 +92,38 @@ std::string findMostSimilarWord(const std::string& target, const std::vector<std
     std::string mostSimilarWord;
     int minDistance = std::numeric_limits<int>::max();
 
-    // Function to calculate Levenshtein distance for a range of words
+    // calculate Levenshtein distance for a range of words
     auto calculateDistances = [&](size_t start, size_t end) {
+
         for (size_t i = start; i < end; ++i) {
-            int distance = levenshteinDistance2(target, wordList[i]);
-            if (distance < minDistance) {
-                minDistance = distance;
+            int distanceBetween = levenshteinDistance2(target, wordList[i]);
+
+            if (distanceBetween < minDistance) {
+
+                minDistance = distanceBetween;
                 mostSimilarWord = wordList[i];
             }
         }
     };
+    const size_t numberOfThreads = std::thread::hardware_concurrency();
 
-    // multiple threads to calculate distances concurrently
-    const size_t numThreads = std::thread::hardware_concurrency();
-    const size_t wordsPerThread = wordList.size() / numThreads;
+    const size_t wordsPerEachThread = wordList.size() / numberOfThreads;
+
     std::vector<std::thread> threads;
 
-    for (size_t i = 0; i < numThreads - 1; ++i) {
-        threads.emplace_back(calculateDistances, i * wordsPerThread, (i + 1) * wordsPerThread); // creates a new thread and adds it to a vector of threads named threads.
+    for (size_t i = 0; i < numberOfThreads - 1; ++i) {
+        threads.emplace_back(calculateDistances, i * wordsPerEachThread, (i + 1) * wordsPerEachThread); 
+        // creates a new thread and adds it to a vector of threads named threads.
+
     }
 
     // Calculate distances for the remaining words in the main thread
-    calculateDistances((numThreads - 1) * wordsPerThread, wordList.size());
+    calculateDistances((numberOfThreads - 1) * wordsPerEachThread, wordList.size());
 
     // Wait for all threads to finish
-    for (auto& thread : threads) {
-        thread.join();
+    for (auto& SingleThread : threads) {
+        SingleThread.join(); //checking
+
     }
 
     return mostSimilarWord;
