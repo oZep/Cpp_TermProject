@@ -12,23 +12,29 @@ using namespace std;
 
 
 // Function to check if a string is a number
-bool isNumber(const std::string& s) {
-    return !s.empty() && std::all_of(s.begin(), s.end(), ::isdigit);
+bool isANumber(const std::string& s) {
+    // CHECKS IF THE STRING IS NOT EMPTY OR IF IT HAS A NUMBER, RETURNS TRUE IS SO FALSE IF OTHERWISE
+    if (s.empty()) {
+        return false;
+    }
+    return std::all_of(s.begin(), s.end(), ::isdigit);
 }
 
 // Function to calculate the value of a word based on the provided letter values
-int calculateWordValue(std::string word, std::map<char, int> letterValues) {
-    int value = 0;
-    for (char c : word) {
+int calculateWordValue(std::string word, std::map<char, int> letterValuesFromLetterValues_txt) {
+    int valueTotalCount = 0; // add up the total value 
+    for (char c : word) { // for every character in the string
         c = std::tolower(c); // Convert to lowercase
-        if (letterValues.find(c) != letterValues.end()) {
-            value += letterValues[c];
+
+        if (letterValuesFromLetterValues_txt.find(c) != letterValuesFromLetterValues_txt.end()) { //find what number the char corresponds to
+
+            valueTotalCount += letterValuesFromLetterValues_txt[c]; // add that to total
         }
     }
-    return value;
+    return valueTotalCount; //return total value of the word
 }
 
-// CHANGED TO OPTAMIZE //
+// CHANGED TO OPTAMIZE ----- NOT USED//
 // WE USE DP PROGRAMMING TO REDUCE THE TIME COMPLEXITY BY REDUCING REDUNDANT CALCULATIONS
 // RECURSIZE therefore solving by base cases
 //  O(m * n), where m and n are the lengths of the input strings.
@@ -58,7 +64,7 @@ int LevDist(const std::string& a, const std::string& b, std::vector<std::vector<
 }
 
 
-// CHANGED TO OPTAMIZE using RECURSION AND DP //
+// CHANGED TO OPTAMIZE using RECURSION AND DP ----> NOT USED//
 // Function to calculate Levenshtein distance between two words
 int levenshteinDistance(const std::string& s1, const std::string& s2) {
     const size_t len1 = s1.size(), len2 = s2.size();
@@ -66,8 +72,7 @@ int levenshteinDistance(const std::string& s1, const std::string& s2) {
     return LevDist(s1, s2, memo);
 }
 
-// CHANGED TO OPTAMIZE USING THREADING
-
+// CHANGED TO OPTAMIZE USING THREADING --> FINAL OPTAMIZATION
 // Function to calculate Levenshtein distance between two words
 int levenshteinDistance2(const std::string& s1, const std::string& s2) {
     const size_t len1 = s1.size();
@@ -87,6 +92,7 @@ int levenshteinDistance2(const std::string& s1, const std::string& s2) {
     return dp[len1][len2];
 }
 
+// CHANGED TO OPTAMIZE USING THREADING --> FINAL OPTAMIZATION
 // Function to find the most similar word from a list
 std::string findMostSimilarWord(const std::string& target, const std::vector<std::string>& wordList) {
     std::string mostSimilarWord;
@@ -96,18 +102,18 @@ std::string findMostSimilarWord(const std::string& target, const std::vector<std
     auto calculateDistances = [&](size_t start, size_t end) {
 
         for (size_t i = start; i < end; ++i) {
-            int distanceBetween = levenshteinDistance2(target, wordList[i]);
+            int distanceBetween = levenshteinDistance2(target, wordList[i]);  // finds the distance using levenshtien
 
             if (distanceBetween < minDistance) {
 
-                minDistance = distanceBetween;
-                mostSimilarWord = wordList[i];
+                minDistance = distanceBetween; // when the distance = minDistance 
+                mostSimilarWord = wordList[i]; // the most similar word is the word in the list at that number
             }
         }
     };
-    const size_t numberOfThreads = std::thread::hardware_concurrency();
+    const size_t numberOfThreads = std::thread::hardware_concurrency();  //get number of threads
 
-    const size_t wordsPerEachThread = wordList.size() / numberOfThreads;
+    const size_t wordsPerEachThread = wordList.size() / numberOfThreads;  //find the words per thread
 
     std::vector<std::thread> threads;
 
@@ -129,7 +135,7 @@ std::string findMostSimilarWord(const std::string& target, const std::vector<std
     return mostSimilarWord;
 }
 
-int main() {
+int main() {   /// JUST ADDED TIME TESTS -- FUNCTION UNCHANGED.
     // TESTING START TIMER
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -141,7 +147,7 @@ int main() {
     std::vector<std::string> mixedWords;
     std::string token;
     while (inputFile >> token) {
-        if (isNumber(token)) {
+        if (isANumber(token)) {
             numbers.push_back(token); // Add to numbers list if it's a number
         }
         else if (std::any_of(token.begin(), token.end(), ::isdigit)) {
